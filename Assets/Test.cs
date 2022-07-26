@@ -23,8 +23,6 @@ public class Boss
     public void Magic(int Consume)
     {
 
-        for (int i = 0; i <= 10; i++)
-        {
             if (mp >= 5)
             {
                 this.mp -= Consume;
@@ -34,7 +32,7 @@ public class Boss
             {
                 Debug.Log("MPが足りないため、魔法が使えない。");
             }
-        }
+        
 
     }
 
@@ -52,7 +50,7 @@ public class Boss
 
 public class Test : MonoBehaviour
 {
-    
+
     void Start()
     {
         // Bossクラスの変数を宣言してインスタンスを代入
@@ -63,7 +61,11 @@ public class Test : MonoBehaviour
         // 防御用の関数を呼び出す
         lastboss.Defence(3);
         //魔法攻撃用の関数を呼び出す
-        lastboss.Magic(5);
+        for(int i = 0; i <= 10; i++)
+        { 
+             lastboss.Magic(5);
+           
+        }
 
 
         int[] array = new int[]{ 1, 2, 3, 4, 5 };
@@ -81,7 +83,7 @@ public class Test : MonoBehaviour
         }
 
         //逆順表示方法②　Array.Reverseを使用するらしい（7/24失敗、存在しないとエラーに…)
-        //（7/24解決　Using System; が抜けていた）
+        //（7/24解決　Using System; が抜けていた）C#本来は使えるが衝突しがち
 
         Array.Reverse(array);
         for (int i = 0; i < array.Length; i++)
